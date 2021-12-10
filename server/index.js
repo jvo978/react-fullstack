@@ -1,8 +1,14 @@
 const express = require('express'); // instance of the framework
 const app = express(); // initialize our server, make api requests
-const db = require('./models')
+const cors = require('cors');
+
 
 app.use(express.json())
+app.use(cors());
+
+//models
+const db = require('./models')
+
 
 //Routers
 const postRouter = require('./routes/Posts');
