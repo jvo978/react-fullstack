@@ -1,11 +1,10 @@
-.post {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
+.profile__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
 .post_description {
@@ -21,7 +20,7 @@
     color: white;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+
   .post__title {
     flex: 20%;
     display: grid;
@@ -34,14 +33,9 @@
   
   .post__body {
     flex: 60%;
-    background-color: lightyellow;
     color: black;
     display: grid;
     place-content: center;
-  }
-
-  .post__body:hover {
-    cursor: pointer;
   }
   
   .post__footer {
@@ -55,10 +49,6 @@
     border-bottom-right-radius: 10px;
   }
 
-  .post__footer .username {
-    flex: 50%;
-  }
-
   .post__footer .buttons {
     flex: 50%;
     display: flex;
@@ -66,16 +56,18 @@
     align-items: center;
   }
 
+  .post__footer a {
+      text-decoration: none;
+  }
+
   .buttons label {
     margin-right: 20px;
     margin-left: 10px;
   }
 
-  .likeBttn {
-    color: rgba(250, 250, 250, 0.8);
-    cursor: pointer;
-  }
-  .unlikeBttn {
-    color: white;
-    cursor: pointer;
+  .basicInfo {
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
   }

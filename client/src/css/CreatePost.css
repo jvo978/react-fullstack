@@ -1,19 +1,21 @@
 .createPost__container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 100px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 20px;
+    width: 100%;
+    height: 100vh;
 }
 
 .createPost__form {
     display: flex;
+    background-color: lightyellow;
     flex-direction: column;
     border: 5px solid lightslategray;
     border-radius: 5px;
     width: 500px;
     padding: 20px;
-    height: auto;
+    height: 180px;
 }
 
 .createPost__form #inputCreatePost {
@@ -32,7 +34,7 @@
     height: 30px;
     border: none;
     background-color: lightslategray;
-    border-radius: 5px;
+    border-radius: 0;
     color: white;
   }
 

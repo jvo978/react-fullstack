@@ -2,8 +2,23 @@ import '../css/Registration.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../helpers/AuthContext'
 
 function Registration() {
+    let navigate = useNavigate()
+    const { authState } = useContext(AuthContext)
+
+    useEffect(() => {
+        if (!localStorage.getItem('accessToken')) {
+            navigate('/registration')
+        } else {
+            navigate('/')
+        }
+    }, [authState.status])
+
+
     const initialValues = {
         username: "",
         password: "",
@@ -16,7 +31,7 @@ function Registration() {
 
     const onSubmit = (data) => {
         axios.post('http://localhost:3001/auth', data).then(response => {
-            console.log(response.data)
+            navigate('/login')
         })
     }
 
@@ -26,7 +41,7 @@ function Registration() {
                 <Form className="registration__form">
                     <label>Username: </label>
                         <ErrorMessage name="username" component="span" />
-                        <Field className="inputRegistration" name="username" placeholder="Username" />
+                        <Field className="inputRegistration" name="username" placeholder="Username" autoComplete="off" />
                     <label>Password: </label>
                         <ErrorMessage name="password" component="span" />
                         <Field className="inputRegistration" type="password" name="password" placeholder="Password" autoComplete="off" />
